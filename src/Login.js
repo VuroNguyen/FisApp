@@ -23,26 +23,26 @@ class Login extends React.Component {
         })
     }
 
-    handleSubmit = () => {
+    // handleSubmit = () => {
         
-        console.log(this.props.account,'day la handle submit')
-        console.log(this.props.account.resultCode,'day la result submit')
-        if (this.props.account.resultCode === -1) {
-                        alert(this.props.account.message)
+    //     console.log(this.props.account,'day la handle submit')
+    //     console.log(this.props.account.resultCode,'day la result submit')
+    //     if (this.props.account.resultCode === -1) {
+    //                     alert(this.props.account.message)
             
-                    }
+    //                 }
             
-                    if(this.props.account.resultCode === 1) {
+    //                 if(this.props.account.resultCode === 1) {
                        
-                        this.props.navigation.navigate('Home')
-                    }
-    }
+    //                     this.props.navigation.navigate('Home')
+    //                 }
+    // }
 
-    componentDidMount() {
+    componentDidUpdate() {
             
-                        let timer = setInterval(() => {
-            //                 console.log(this.props.account, 'login page')
-            // console.log(this.props.account.resultCode,'day la result submit')
+                        // let timer = setInterval(() => {
+                            console.log(this.props.account, 'login page')
+            console.log(this.props.account.resultCode,'day la result submit')
             if (this.props.account.resultCode === -1) {
                             alert(this.props.account.message)
                 
@@ -52,10 +52,10 @@ class Login extends React.Component {
                             
                             this.props.navigation.navigate('Home')
                         }
-                        }, 1000)
-                        return () => {
-                            clearInterval(timer)
-                        }
+                        // }, 1000)
+                        // return () => {
+                        //     clearInterval(timer)
+                        // }
     }
 
     render() {

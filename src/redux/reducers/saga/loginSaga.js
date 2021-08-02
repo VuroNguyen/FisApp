@@ -15,7 +15,7 @@ function* signInFlow(action) {
             yield put({type: SIGN_IN_SUCCESS, response: response})
         }
         else {
-            yield put({type: SIGN_IN_ERROR, error})
+            yield put({type: SIGN_IN_ERROR, error: response})
         }
     }
     else {

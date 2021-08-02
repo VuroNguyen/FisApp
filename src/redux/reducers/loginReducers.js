@@ -8,12 +8,12 @@ const initialState = {
 const loginReducers = (login = [], action, navigation) => {
     try {
         switch (action.type) {
-            case POST_LOGIN:
-                // const response =  postLogin(action.username, action.password)
-                console.log('from loginReducer')
-                const response = postLogin(action.username, action.password)
-                console.log(login.concat(response), 'day la luc push')
-                return login.concat(response);
+            // case POST_LOGIN:
+            //     // const response =  postLogin(action.username, action.password)
+            //     console.log('from loginReducer')
+            //     const response = postLogin(action.username, action.password)
+            //     console.log(login.concat(response), 'day la luc push')
+            //     return login.concat(response);
 
             case SIGN_IN_SUCCESS:
                 return action.response;

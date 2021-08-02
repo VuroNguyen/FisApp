@@ -1,4 +1,4 @@
-import { ADD_NEW_CLASS, DELETE_CLASS, POST_LOGIN, DID_LOGIN_ACTION, SIGN_IN_SUCCESS, SIGN_IN_ERROR, GET_ALL_COURSE } from "./actionTypes";
+import { ADD_NEW_CLASS, DELETE_CLASS, POST_LOGIN, DID_LOGIN_ACTION, SIGN_IN_SUCCESS, SIGN_IN_ERROR, GET_ALL_COURSE, GET_COURSE_ERROR, GET_COURSE_SUCCESS } from "./actionTypes";
 
 let newClassId = 0;
 export const addNewClass = (inputClassName, inputTeacherName, inputManager, inputDate, inputTime, inputBuilding, inputRoom ) => {
@@ -48,6 +48,20 @@ export const signInError = (error) => {
 export const getAllCourse = () => {
     return {
         type: GET_ALL_COURSE
+    }
+}
+
+export const getCourseSuccess = (recievedCourse) => {
+    return {
+        type: GET_COURSE_SUCCESS,
+        recievedCourse
+    }
+}
+
+export const getCourseFailure = (error) => {
+    return {
+        type: GET_COURSE_ERROR,
+        error
     }
 }
 
