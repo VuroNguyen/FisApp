@@ -15,11 +15,11 @@ function* signInFlow(action) {
             yield put({type: SIGN_IN_SUCCESS, response: response})
         }
         else {
-            yield put({type: SIGN_IN_ERROR, error: response})
+            yield put({type: SIGN_IN_ERROR, error: response.message})
         }
     }
     else {
-        yield put({type: SIGN_IN_ERROR, error})
+        yield put({type: SIGN_IN_ERROR, error: response.message})
     }
     } catch(error) {
         alert(error)

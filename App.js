@@ -21,9 +21,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import allReducers from './src/redux/reducers';
-import MainDrawerScreen from './src/components/home/MainDrawer';
+import MainDrawerScreen from './src/navigation/MainDrawer';
 import RootStack from './src/RootStack';
 import rootSaga from './src/redux/reducers/saga/rootSaga';
+import { MenuProvider } from 'react-native-popup-menu';
+import { LogBox } from 'react-native';
+import AuthNavigator from './src/navigation/Auth';
+LogBox.ignoreLogs(['Reanimated 2']);
 
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore(allReducers, applyMiddleware(sagaMiddleware));
@@ -36,9 +40,11 @@ const App = () => {
     //  <MainDrawerScreen/>
     //  </NavigationContainer>
     <Provider store={store}>
+      <MenuProvider>
       <NavigationContainer>
-        <MainDrawerScreen />
+        <AuthNavigator />
       </NavigationContainer>
+      </MenuProvider>
     </Provider>
   );
 };

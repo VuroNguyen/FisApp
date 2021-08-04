@@ -58,7 +58,9 @@ const HomeStack = ({ navigation }) => {
                     title: 'FIS INSIGHT',
                     headerLeft: () => (
                         <View style={{ height: 25, width: 25, marginLeft: 18, marginBottom: 15, marginTop: 10 }}>
+                            <TouchableOpacity  onPress={navigation.toggleDrawer()}>
                             <Image source={require('./res/images/ic_menu.png')} style={styles.image} />
+                            </TouchableOpacity>
                         </View>
                     ),
                     headerRight: () => (

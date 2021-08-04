@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "../Login";
-import {loginAction} from '../redux/action/index';
+import {loginAction, getAllCourse} from '../redux/action/index';
 import { connect } from "react-redux";
 
 class LoginContainer extends React.Component {
@@ -22,6 +22,9 @@ const mapDispatchToProp = (dispatch) => {
     return {
         login: (username,password) => {
             dispatch(loginAction(username,password))
+        },
+        fetchData: () => {
+            dispatch(getAllCourse())
         }
     }
 }

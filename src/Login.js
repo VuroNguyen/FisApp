@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, Image, Dimensions, TextInput, TouchableOpacity 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { height, width } = Dimensions.get('screen');
 class Login extends React.Component {
@@ -24,38 +25,47 @@ class Login extends React.Component {
     }
 
     // handleSubmit = () => {
-        
+
     //     console.log(this.props.account,'day la handle submit')
     //     console.log(this.props.account.resultCode,'day la result submit')
     //     if (this.props.account.resultCode === -1) {
     //                     alert(this.props.account.message)
-            
+
     //                 }
-            
+
     //                 if(this.props.account.resultCode === 1) {
-                       
+
     //                     this.props.navigation.navigate('Home')
     //                 }
     // }
 
+    storeToken = async () => {
+        try {
+            await AsyncStorage.setItem("@userToken",this.props.account.data.token)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     componentDidUpdate() {
-            
-                        // let timer = setInterval(() => {
-                            console.log(this.props.account, 'login page')
-            console.log(this.props.account.resultCode,'day la result submit')
-            if (this.props.account.resultCode === -1) {
-                            alert(this.props.account.message)
-                
-                        }
-                
-                        if(this.props.account.resultCode === 1) {
-                            
-                            this.props.navigation.navigate('Home')
-                        }
-                        // }, 1000)
-                        // return () => {
-                        //     clearInterval(timer)
-                        // }
+        this.storeToken()
+        // let timer = setInterval(() => {
+        console.log(this.props.account.data.token, 'login page')
+        console.log(this.props.account.resultCode, 'day la result submit')
+
+        if (this.props.account.resultCode === -1) {
+            alert(this.props.account.message)
+
+        }
+
+        if (this.props.account.resultCode === 1) {
+
+            this.props.navigation.navigate('Drawer')
+        }
+        // }, 1000)
+        // return () => {
+        //     clearInterval(timer)
+        // }
     }
 
     render() {
@@ -157,17 +167,17 @@ class Login extends React.Component {
                 </View>
 
                 <View style={styles.section}>
-                    <TouchableOpacity style={styles.button} onPress={() => {this.props.login(this.state.username, this.state.password)}}>
+                    <TouchableOpacity style={styles.button} onPress={() => { this.props.login(this.state.username, this.state.password)}}>
                         <Text style={styles.buttonText}>ĐĂNG NHẬP</Text>
                     </TouchableOpacity>
                 </View>
 
-                <View style={[styles.section, {height: 125, width: width*0.6}]}>
-                    <Image source={require('./res/images/swipe.png')} style={styles.image}/>
+                <View style={[styles.section, { height: 125, width: width * 0.6 }]}>
+                    <Image source={require('./res/images/swipe.png')} style={styles.image} />
                 </View>
 
-                <View style={{marginTop:35}}>
-                    <Text style={{color: '#c3c9d2'}}>Copyright @ 2019 FPT Information System</Text>
+                <View style={{ marginTop: 35 }}>
+                    <Text style={{ color: '#c3c9d2' }}>Copyright @ 2019 FPT Information System</Text>
                 </View>
             </View>
         );
@@ -182,7 +192,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#f4f8fb',
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     section: {
@@ -224,7 +234,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#ff9434',
         alignItems: 'center',
-        width : width * 0.75,
+        width: width * 0.75,
     },
     buttonText: {
         fontSize: 18,
