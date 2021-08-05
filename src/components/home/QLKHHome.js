@@ -72,14 +72,9 @@ const QLKHHome = ({navigation}) => {
         return (
             <Card
                 itemData={item}
-                // onPress = {() => {navigation.navigate('EditCourse'), {
-                //     courseName: item.courseName,
-                //     trainer: item.trainer,
-                //     startedDate: item.startedDate,
-                //     endedDate: item.endedDate,
-                //     buildingName: item.buildingName,
-                //     roomName: item.roomName
-                // }}}
+                onPress = {() => {navigation.navigate('EditCourse', {
+                    courseData: item
+                })}}
             />
         );
     };

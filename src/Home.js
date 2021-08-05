@@ -7,10 +7,182 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import moment from 'moment';
 import momentVI from 'moment/locale/vi';
 moment().locale('vi', momentVI);
+import images from './res/images/index';
 
 
 const { height, width } = Dimensions.get('screen');
 const HomeScreen = ({ navigation }) => {
+
+    const content = [
+        {
+            id: 1,
+            image: <Image source={images.ic_crm} style={styles.icon} />,
+            text: 'CRM',
+            status: 'new'
+        },
+        {
+            id: 2,
+            image: <Image source={images.ic_ba} style={styles.icon} />,
+            text: 'BA Online',
+            status: 'new'
+        },
+        {
+            id: 3,
+            image: <Image source={images.ic_etms} style={styles.icon} />,
+            text: 'eTMS',
+            status: 'new'
+        },
+        {
+            id: 4,
+            image: <Image source={images.ic_eleaning} style={styles.icon} />,
+            text: 'eLearning',
+            status: 'normal'
+        },
+        {
+            id: 5,
+            image: <Image source={images.ic_edu} style={styles.icon} />,
+            text: 'Điểm danh đào tạo',
+            status: 'normal'
+        },
+        {
+            id: 6,
+            image: <Image source={images.ic_fpt_contract} style={styles.icon} />,
+            text: 'FPT.eContract',
+            status: 'normal'
+        },
+        {
+            id: 7,
+            image: <Image source={images.ic_rmis} style={styles.icon} />,
+            text: 'RMIS',
+            status: 'normal'
+        },
+        {
+            id: 8,
+            image: <Image source={images.ic_epms} style={styles.icon} />,
+            text: 'ePMS',
+            status: 'normal'
+        },
+        {
+            id: 9,
+            image: <Image source={images.ic_ad} style={styles.icon} />,
+            text: 'AD Online',
+            status: 'normal'
+        },
+        {
+            id: 10,
+            image: <Image source={images.ic_erev} style={styles.icon} />,
+            text: 'eRevenue',
+            status: 'normal'
+        },
+        {
+            id: 11,
+            image: <Image source={images.ic_epucharse} style={styles.icon} />,
+            text: 'ePurchase',
+            status: 'normal'
+        },
+        {
+            id: 12,
+            image: <Image source={images.ic_work_place} style={styles.icon} />,
+            text: 'Workplace',
+            status: 'normal'
+        },
+        {
+            id: 13,
+            image: <Image source={images.ic_work_chat} style={styles.icon} />,
+            text: 'Workplace Chat',
+            status: 'normal'
+        },
+        {
+            id: 14,
+            image: <Image source={images.ic_tems} style={styles.icon} />,
+            text: 'Teams',
+            status: 'normal'
+        },
+        {
+            id: 15,
+            image: <Image source={images.ic_smp} style={styles.icon} />,
+            text: 'SMPortal',
+            status: 'normal'
+        },
+        {
+            id: 16,
+            image: <Image source={images.ic_dms} style={styles.icon} />,
+            text: 'DMS',
+            status: 'normal'
+        },
+        {
+            id: 17,
+            image: <Image source={images.ic_conflu} style={styles.icon} />,
+            text: 'Confluence',
+            status: 'normal'
+        },
+        {
+            id: 18,
+            image: <Image source={images.ic_okr} style={styles.icon} />,
+            text: 'OKR',
+            status: 'normal'
+        },
+        {
+            id: 19,
+            image: <Image source={images.ic_survey} style={styles.icon} />,
+            text: 'Survey',
+            status: 'normal'
+        },
+        {
+            id: 20,
+            image: <Image source={images.ic_decentralization} style={styles.icon} />,
+            text: 'Phân quyền ủy quyền',
+            status: 'normal'
+        },
+        {
+            id: 21,
+            image: <Image source={images.ic_epayment} style={styles.icon} />,
+            text: 'ePayment',
+            status: 'normal'
+        },
+        {
+            id: 22,
+            image: <Image source={images.ic_fis_lib} style={styles.icon} />,
+            text: 'Thư viện tài liệu',
+            status: 'normal'
+        },
+        {
+            id: 23,
+            image: <Image source={images.ic_email} style={styles.icon} />,
+            text: 'Email',
+            status: 'normal'
+        },
+        {
+            id: 24,
+            image: <Image source={images.ic_eiso} style={styles.icon} />,
+            text: 'eISO',
+            status: 'normal'
+        },
+        {
+            id: 25,
+            image: <Image source={images.ic_doc_hr} style={styles.icon} />,
+            text: 'Tài liệu nhân sự',
+            status: 'normal'
+        },
+        {
+            id: 26,
+            image: <Image source={images.ic_bank} style={styles.icon} />,
+            text: 'Bank360',
+            status: 'normal'
+        },
+        {
+            id: 27,
+            image: <Image source={images.ic_decentralization} style={styles.icon} />,
+            text: 'Phần mềm nhân sự',
+            status: 'normal'
+        },
+        {
+            id: 28,
+            image: <Image source={images.ic_jira} style={styles.icon} />,
+            text: 'Jira',
+            status: 'normal'
+        },
+    ]
 
     const [clockCount, setClockCount] = useState('');
 
@@ -60,7 +232,7 @@ const HomeScreen = ({ navigation }) => {
                                         source={require('./res/images/ic_wifi.png')}
                                         color='#72ae98'
                                         size={18}
-                                        style={[styles.icImg, { marginLeft: -4 }]}
+                                        style={[styles.icon, { marginLeft: -4 }]}
                                     />
                                 </View>
                                 <Text style={[styles.text, { marginLeft: 13 }]}>FIS.HCM</Text>
@@ -94,7 +266,7 @@ const HomeScreen = ({ navigation }) => {
                                 <View style={{ height: 50, width: 50 }}>
                                     <Image
                                         source={require('./res/images/ic_request_late.png')}
-                                        style={styles.icImg}
+                                        style={styles.icon}
                                     />
                                 </View>
                                 <Text style={styles.innerText}>Xin đi trễ</Text>
@@ -110,7 +282,7 @@ const HomeScreen = ({ navigation }) => {
                                 <View style={{ height: 50, width: 50 }}>
                                     <Image
                                         source={require('./res/images/ic_check_in.png')}
-                                        style={styles.icImg}
+                                        style={styles.icon}
                                     />
                                 </View>
                                 <Text style={styles.innerText}>Check In</Text>
@@ -163,7 +335,7 @@ const HomeScreen = ({ navigation }) => {
                                 <View style={{ height: 30, width: 30 }}>
                                     <Image
                                         source={require('./res/images/ic_wfh.png')}
-                                        style={styles.icImg}
+                                        style={styles.icon}
                                     />
                                 </View>
                                 <Text style={styles.innerTextSmall}>WFH</Text>
@@ -179,7 +351,7 @@ const HomeScreen = ({ navigation }) => {
                                 <View style={{ height: 30, width: 30 }}>
                                     <Image
                                         source={require('./res/images/ic_onsite.png')}
-                                        style={styles.icImg}
+                                        style={styles.icon}
                                     />
                                 </View>
                                 <Text style={styles.innerTextSmall}>Onsite</Text>
@@ -198,7 +370,7 @@ const HomeScreen = ({ navigation }) => {
                             <View style={{ height: 30, width: 30 }}>
                                 <Image
                                     source={require('./res/images/ic_add.png')}
-                                    style={styles.icImg}
+                                    style={styles.icon}
                                 />
                             </View>
                             <Text style={styles.innerTextSmall}>Khai báo y tế</Text>
@@ -211,13 +383,29 @@ const HomeScreen = ({ navigation }) => {
                 <View style={{ height: 10 }}>
                     <Image source={require('./res/images/shadow_bottom.png')} />
                 </View>
+                <View style={{flexDirection: 'row' ,justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap'}}>
+                <FlatList
+                    data={content}
+                    keyExtractor ={item => item.id}
+                    renderItem = {({item}) => (
+                        
+                            <View style={styles.chooseList}>
+                            <View style={{ height: 65, width: 65 }}>
+                                {item.image}
+                            </View>
+                            <Text style={styles.chooseListText}>{item.text}</Text>
+                            </View>
+                        
+                    )}
+                />
+                </View>
 
-                <View style={{ flexDirection: 'row',flexWrap: 'wrap',justifyContent: 'space-around'}}>
+                {/* <View style={{ flexDirection: 'row',flexWrap: 'wrap',justifyContent: 'space-around'}}>
                     <View style={styles.chooseList}>
                         <View style={{ height: 65, width: 65 }}>
                             <Image
                                 source={require('./res/images/ic_crm.png')}
-                                style={styles.icImg}
+                                style={styles.icon}
                             />
                         </View>
                         <Text style={styles.chooseListText}>CRM</Text>
@@ -227,7 +415,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ height: 65, width: 65 }}>
                             <Image
                                 source={require('./res/images/ic_ba.png')}
-                                style={styles.icImg}
+                                style={styles.icon}
                             />
                         </View>
                         <Text style={styles.chooseListText}>BA online</Text>
@@ -237,7 +425,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ height: 65, width: 65 }}>
                             <Image
                                 source={require('./res/images/ic_etms.png')}
-                                style={styles.icImg}
+                                style={styles.icon}
                             />
                         </View>
                         <Text style={styles.chooseListText}>eTMS</Text>
@@ -247,7 +435,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ height: 65, width: 65 }}>
                             <Image
                                 source={require('./res/images/ic_eleaning.png')}
-                                style={styles.icImg}
+                                style={styles.icon}
                             />
                         </View>
                         <Text style={styles.chooseListText}>E-Learning</Text>
@@ -257,7 +445,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ height: 65, width: 65 }}>
                             <Image
                                 source={require('./res/images/ic_edu.png')}
-                                style={styles.icImg}
+                                style={styles.icon}
                             />
                         </View>
                         <Text style={styles.chooseListText}>EDUCATION</Text>
@@ -267,12 +455,12 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ height: 65, width: 65 }}>
                             <Image
                                 source={require('./res/images/ic_fpt_contract.png')}
-                                style={styles.icImg}
+                                style={styles.icon}
                             />
                         </View>
                         <Text style={styles.chooseListText}>Contact</Text>
                     </View>
-                </View>
+                </View> */}
             </View>
         </View>
     )
@@ -291,7 +479,7 @@ const styles = StyleSheet.create({
         height: null,
         resizeMode: 'contain',
     },
-    icImg: {
+    icon: {
         flex: 1,
         width: null,
         height: null,

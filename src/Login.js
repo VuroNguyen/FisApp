@@ -60,7 +60,7 @@ class Login extends React.Component {
 
         if (this.props.account.resultCode === 1) {
 
-            this.props.navigation.navigate('Drawer')
+            this.props.navigation.replace('Drawer')
         }
         // }, 1000)
         // return () => {

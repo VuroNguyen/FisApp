@@ -18,22 +18,25 @@ import Home from '../Home';
 import EditCourse from '../components/course/EditCourse'
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
+const CStack = createStackNavigator();
+const HStack = createStackNavigator();
 
-const LoginStack = ({ navigation }) => (
-    <Stack.Navigator initialRouteName='login'>
-        <Stack.Screen
-            name='login'
-            component={LoginContainer}
-            options={{
-                headerShown: false
-            }}
-        />
-    </Stack.Navigator>
-);
+// const LoginStack = ({ navigation }) => (
+//     <Stack.Navigator initialRouteName='login'>
+//         <Stack.Screen
+//             name='login'
+//             component={LoginContainer}
+//             options={{
+//                 headerShown: false
+//             }}
+//         />
+//     </Stack.Navigator>
+// );
 
-const CourseStack = ({ navigation }) => (
-    <Stack.Navigator screenOptions={{
+const CourseStack = ({ navigation }) => {
+    const {goBack} = useNavigation();
+    return (
+    <CStack.Navigator screenOptions={{
         headerTintColor: '#355171',
         headerTitleAlign: 'center',
         headerTitleStyle: {
@@ -42,7 +45,7 @@ const CourseStack = ({ navigation }) => (
         },
 
     }}>
-        <Stack.Screen
+        <CStack.Screen
             name='QLKHHome'
             component={QLKHHome}
             options={{
@@ -79,13 +82,13 @@ const CourseStack = ({ navigation }) => (
             }}
         />
 
-        <Stack.Screen
+        <CStack.Screen
             name='AddClass'
             component={AddClass}
             options={{
                 title: 'TẠO MỚI KHOÁ HỌC',
                 headerLeft: () => (
-                    <TouchableOpacity onPress={() => { navigation.goBack() }}>
+                    <TouchableOpacity onPress={() => goBack() }>
                         <View style={{ height: 25, width: 25, marginLeft: 18 }}>
 
                             <Image source={require('../res/images/arrow.png')} style={styles.image} />
@@ -103,7 +106,7 @@ const CourseStack = ({ navigation }) => (
             }}
         />
 
-        <Stack.Screen
+        <CStack.Screen
             name='EditCourse'
             component={EditCourse}
             options={{
@@ -127,14 +130,14 @@ const CourseStack = ({ navigation }) => (
             }}
         />
 
-    </Stack.Navigator>
+    </CStack.Navigator>
 
-)
+)}
 
 const HomeStack = ({ navigation }) => {
     const { goBack } = useNavigation();
     return (
-        <Stack.Navigator screenOptions={{
+        <HStack.Navigator screenOptions={{
             headerTintColor: '#355171',
             headerTitleAlign: 'center',
             headerTitleStyle: {
@@ -148,7 +151,7 @@ const HomeStack = ({ navigation }) => {
 
             }
         }}>
-            <Stack.Screen
+            <HStack.Screen
                 name='Main'
                 component={Home}
                 options={{
@@ -182,7 +185,7 @@ const HomeStack = ({ navigation }) => {
                 }}
             />
 
-        </Stack.Navigator>
+        </HStack.Navigator>
     )
 }
 

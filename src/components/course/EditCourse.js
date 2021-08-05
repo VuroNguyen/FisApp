@@ -10,8 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const { height, width } = Dimensions.get('screen');
 const EditCourse = ({route}) => {
-    const title = route.params.title;
-    console.log(title);
+    const {courseData} = route.params;
+    console.log(courseData.trainer)
     const [localData, setLocalData] = useState({
         class: '',
         teacherName: '',
@@ -35,7 +35,7 @@ const EditCourse = ({route}) => {
     const [openRoom, setOpenRoom] = useState(false);
     const [valueRoom, setValueRoom] = useState(null);
     const [itemsRoom, setItemsRoom] = useState([
-        { label: 'Chương Dương - Tầng 5', value: 'Chương Dương - Tầng 5' },
+        { label: 'Chương Dương', value: 'Chương Dương' },
         { label: 'Tràng An - Tầng 20', value: 'Tràng An - Tầng 20' }
     ]);
 
@@ -53,15 +53,15 @@ const EditCourse = ({route}) => {
     }
 
     useEffect(() => {
-        // setLocalData({
-        //     ...localData,
-        //     class: courseName,
-        //     teacherName: trainer,
-        // })
-        // setFromDate(startedDate)
-        // setToDate(endedDate)
-        // setValueBuilding(buildingName)
-        // setValueRoom(roomName)
+        setLocalData({
+            ...localData,
+            class: courseData.courseName,
+            teacherName: courseData.trainer,
+        })
+        setFromDate(moment(courseData.startedDate).format('L'))
+        setToDate(moment(courseData.endedDate).format('L'))
+        setValueBuilding(courseData.buildingName)
+        setValueRoom(courseData.roomName)
     }, [])
 
     const [isFromDatePickerVisible, setFromDatePickerVisibility] = useState(false);
@@ -313,7 +313,7 @@ const EditCourse = ({route}) => {
                         open={openRoom}
                         value={valueRoom}
                         items={itemsRoom}
-                        placeholder='Chọn toà nhà'
+                        placeholder='Chọn Phòng'
                         setOpen={setOpenRoom}
                         setValue={setValueRoom}
                         setItems={setItemsRoom}
@@ -335,7 +335,7 @@ const EditCourse = ({route}) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress={() => {
+                {/* <TouchableOpacity onPress={() => {
                     console.log(localData),
                     console.log(currentDate),
                     console.log(valueBuilding),
@@ -346,7 +346,7 @@ const EditCourse = ({route}) => {
                     navigation.navigate('Home')
                 }}>
                     <Text>Test button</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </View>
 

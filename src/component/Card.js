@@ -34,7 +34,7 @@ const Card = ({ itemData, onDelete, onPress}) => {
                         />
                     </MenuTrigger>
                     <MenuOptions>
-                        <MenuOption onSelect={() => {navigate('EditCourse'), {title: itemData.courseName}}} text='Edit' />
+                        <MenuOption onSelect={onPress} text='Edit' />
                         <MenuOption onSelect={() => alert(`Delete`)} >
                             <Text style={{ color: 'red' }}>Delete</Text>
                         </MenuOption>
